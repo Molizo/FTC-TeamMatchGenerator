@@ -370,9 +370,7 @@ namespace FTC_TeamMatchGenerator
                     {
                         Match inputMatch = new Match();
                         if (worksheet.Cells[currentRow, 1].Text == String.Empty)
-                        {
                             break;
-                        }
                         inputMatch.MatchID = worksheet.Cells[currentRow, 1].Text;
                         inputMatch.RedTeam1 = worksheet.Cells[currentRow, 2].Text;
                         inputMatch.RedTeam2 = worksheet.Cells[currentRow, 3].Text;
@@ -408,9 +406,7 @@ namespace FTC_TeamMatchGenerator
                     {
                         Team inputTeam = new Team();
                         if (worksheet.Cells[currentRow, 1].Text == String.Empty)
-                        {
                             break;
-                        }
                         inputTeam.TeamID = worksheet.Cells[currentRow, 1].Text;
                         inputTeam.TeamName = worksheet.Cells[currentRow, 2].Text;
                         if(inputTeam.TeamName.Length > 16)
