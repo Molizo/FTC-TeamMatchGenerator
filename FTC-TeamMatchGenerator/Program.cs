@@ -89,7 +89,7 @@ namespace FTC_TeamMatchGenerator
                         teamWorksheet.Cells["A1:D2"].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thick;
 
                         teamWorksheet.PrinterSettings.FitToWidth = 0;
-                        teamWorksheet.PrinterSettings.Orientation = eOrientation.Portrait;
+                        teamWorksheet.PrinterSettings.Orientation = eOrientation.Landscape;
                         teamWorksheet.PrinterSettings.PaperSize = ePaperSize.A5;
                         teamWorksheet.PrinterSettings.BottomMargin = 0.2m;
                         teamWorksheet.PrinterSettings.TopMargin = 0.2m;
@@ -99,22 +99,27 @@ namespace FTC_TeamMatchGenerator
                         var cell = teamWorksheet.Cells[1,1];
                         cell.Value = providedBy;
                         cell.Style.Font.Color.SetColor(255,117,113,113);
+                        cell.Style.Font.Size = 14;
 
                         cell = teamWorksheet.Cells[2,1];
                         cell.Value = "Team #" + team.TeamID + " | " + team.TeamName;
-                        cell.Style.Font.Size = 16;
+                        cell.Style.Font.Size = 17;
 
                         cell = teamWorksheet.Cells[3,1];
                         cell.Value = "Match";
+                        cell.Style.Font.Size = 14;
 
                         cell = teamWorksheet.Cells[3,2];
                         cell.Value = "Partner";
+                        cell.Style.Font.Size = 14;
 
                         cell = teamWorksheet.Cells[3,3];
                         cell.Value = "Opponent 1";
+                        cell.Style.Font.Size = 14;
                         
                         cell=teamWorksheet.Cells[3,4];
                         cell.Value = "Opponent 2";
+                        cell.Style.Font.Size = 14;
 
                         teamWorksheet.Cells["A3:D3"].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
                         teamWorksheet.Cells["A3:D3"].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
@@ -135,6 +140,7 @@ namespace FTC_TeamMatchGenerator
                                    (match.BlueTeam1.Contains('*') && match.BlueTeam1.TrimEnd('*') == team.TeamID) ||
                                    (match.BlueTeam2.Contains('*') && match.BlueTeam2.TrimEnd('*') == team.TeamID))
                                     cell.Value = match.MatchID + "*";
+                                cell.Style.Font.Size = 14;
 
                                 if(match.RedTeam1.TrimEnd('*') == team.TeamID)
                                 {
@@ -142,6 +148,7 @@ namespace FTC_TeamMatchGenerator
                                     cell = teamWorksheet.Cells[currentRow+1,1];
                                     cell.Value="Red";
                                     cell.Style.Font.Color.SetColor(Color.Red);
+                                    cell.Style.Font.Size = 14;
                                     foreach(var team1 in teams)
                                     {
                                         if(team1.TeamID == match.RedTeam2.TrimEnd('*'))
@@ -149,33 +156,36 @@ namespace FTC_TeamMatchGenerator
                                             cell = teamWorksheet.Cells[currentRow,2];
                                             cell.Style.Font.Color.SetColor(Color.Red);
                                             cell.Value = team1.TeamID;
-                                            cell.Style.Font.Size = 15;
+                                            cell.Style.Font.Size = 17;
 
                                             cell = teamWorksheet.Cells[currentRow+1,2];
                                             cell.Style.Font.Color.SetColor(Color.Red);
                                             cell.Value = team1.TeamName;
+                                            cell.Style.Font.Size = 14;
                                         }
                                         else if(team1.TeamID == match.BlueTeam1.TrimEnd('*'))
                                         {
                                             cell = teamWorksheet.Cells[currentRow,3];
                                             cell.Style.Font.Color.SetColor(Color.Blue);
                                             cell.Value = team1.TeamID;
-                                            cell.Style.Font.Size = 15;
+                                            cell.Style.Font.Size = 17;
 
                                             cell = teamWorksheet.Cells[currentRow+1,3];
                                             cell.Style.Font.Color.SetColor(Color.Blue);
                                             cell.Value = team1.TeamName;
+                                            cell.Style.Font.Size = 14;
                                         }
                                         else if(team1.TeamID == match.BlueTeam2.TrimEnd('*'))
                                         {
                                             cell = teamWorksheet.Cells[currentRow,4];
                                             cell.Style.Font.Color.SetColor(Color.Blue);
                                             cell.Value = team1.TeamID;
-                                            cell.Style.Font.Size = 15;
+                                            cell.Style.Font.Size = 17;
 
                                             cell = teamWorksheet.Cells[currentRow+1,4];
                                             cell.Style.Font.Color.SetColor(Color.Blue);
                                             cell.Value = team1.TeamName;
+                                            cell.Style.Font.Size = 14;
                                         }
                                     }
                                 }
@@ -186,6 +196,7 @@ namespace FTC_TeamMatchGenerator
                                     cell = teamWorksheet.Cells[currentRow+1,1];
                                     cell.Value="Red";
                                     cell.Style.Font.Color.SetColor(Color.Red);
+                                    cell.Style.Font.Size = 14;
                                     foreach(var team1 in teams)
                                     {
                                         if(team1.TeamID == match.RedTeam1.TrimEnd('*'))
@@ -193,33 +204,36 @@ namespace FTC_TeamMatchGenerator
                                             cell = teamWorksheet.Cells[currentRow,2];
                                             cell.Style.Font.Color.SetColor(Color.Red);
                                             cell.Value = team1.TeamID;
-                                            cell.Style.Font.Size = 15;
+                                            cell.Style.Font.Size = 17;
 
                                             cell = teamWorksheet.Cells[currentRow+1,2];
                                             cell.Style.Font.Color.SetColor(Color.Red);
                                             cell.Value = team1.TeamName;
+                                            cell.Style.Font.Size = 14;
                                         }
                                         else if(team1.TeamID == match.BlueTeam1.TrimEnd('*'))
                                         {
                                             cell = teamWorksheet.Cells[currentRow,3];
                                             cell.Style.Font.Color.SetColor(Color.Blue);
                                             cell.Value = team1.TeamID;
-                                            cell.Style.Font.Size = 15;
+                                            cell.Style.Font.Size = 17;
 
                                             cell = teamWorksheet.Cells[currentRow+1,3];
                                             cell.Style.Font.Color.SetColor(Color.Blue);
                                             cell.Value = team1.TeamName;
+                                            cell.Style.Font.Size = 14;
                                         }
                                         else if(team1.TeamID == match.BlueTeam2.TrimEnd('*'))
                                         {
                                             cell = teamWorksheet.Cells[currentRow,4];
                                             cell.Style.Font.Color.SetColor(Color.Blue);
                                             cell.Value = team1.TeamID;
-                                            cell.Style.Font.Size = 15;
+                                            cell.Style.Font.Size = 17;
 
                                             cell = teamWorksheet.Cells[currentRow+1,4];
                                             cell.Style.Font.Color.SetColor(Color.Blue);
                                             cell.Value = team1.TeamName;
+                                            cell.Style.Font.Size = 14;
                                         }
                                     }
                                 }
@@ -229,6 +243,7 @@ namespace FTC_TeamMatchGenerator
                                     cell = teamWorksheet.Cells[currentRow+1,1];
                                     cell.Value="Blue";
                                     cell.Style.Font.Color.SetColor(Color.Blue);
+                                    cell.Style.Font.Size = 14;
                                     foreach(var team1 in teams)
                                     {
                                         if(team1.TeamID == match.BlueTeam2.TrimEnd('*'))
@@ -236,33 +251,36 @@ namespace FTC_TeamMatchGenerator
                                             cell = teamWorksheet.Cells[currentRow,2];
                                             cell.Style.Font.Color.SetColor(Color.Blue);
                                             cell.Value = team1.TeamID;
-                                            cell.Style.Font.Size = 15;
+                                            cell.Style.Font.Size = 17;
 
                                             cell = teamWorksheet.Cells[currentRow+1,2];
                                             cell.Style.Font.Color.SetColor(Color.Blue);
                                             cell.Value = team1.TeamName;
+                                            cell.Style.Font.Size = 14;
                                         }
                                         else if(team1.TeamID == match.RedTeam1.TrimEnd('*'))
                                         {
                                             cell = teamWorksheet.Cells[currentRow,3];
                                             cell.Style.Font.Color.SetColor(Color.Red);
                                             cell.Value = team1.TeamID;
-                                            cell.Style.Font.Size = 15;
+                                            cell.Style.Font.Size = 17;
 
                                             cell = teamWorksheet.Cells[currentRow+1,3];
                                             cell.Style.Font.Color.SetColor(Color.Red);
                                             cell.Value = team1.TeamName;
+                                            cell.Style.Font.Size = 14;
                                         }
                                         else if(team1.TeamID == match.RedTeam2.TrimEnd('*'))
                                         {
                                             cell = teamWorksheet.Cells[currentRow,4];
                                             cell.Style.Font.Color.SetColor(Color.Red);
                                             cell.Value = team1.TeamID;
-                                            cell.Style.Font.Size = 15;
+                                            cell.Style.Font.Size = 17;
 
                                             cell = teamWorksheet.Cells[currentRow+1,4];
                                             cell.Style.Font.Color.SetColor(Color.Red);
                                             cell.Value = team1.TeamName;
+                                            cell.Style.Font.Size = 14;
                                         }
                                     }
                                 }
@@ -273,6 +291,7 @@ namespace FTC_TeamMatchGenerator
                                     cell = teamWorksheet.Cells[currentRow+1,1];
                                     cell.Value="Blue";
                                     cell.Style.Font.Color.SetColor(Color.Blue);
+                                    cell.Style.Font.Size = 14;
                                     foreach(var team1 in teams)
                                     {
                                         if(team1.TeamID == match.BlueTeam1.TrimEnd('*'))
@@ -280,33 +299,36 @@ namespace FTC_TeamMatchGenerator
                                             cell = teamWorksheet.Cells[currentRow,2];
                                             cell.Style.Font.Color.SetColor(Color.Blue);
                                             cell.Value = team1.TeamID;
-                                            cell.Style.Font.Size = 15;
+                                            cell.Style.Font.Size = 17;
 
                                             cell = teamWorksheet.Cells[currentRow+1,2];
                                             cell.Style.Font.Color.SetColor(Color.Blue);
                                             cell.Value = team1.TeamName;
+                                            cell.Style.Font.Size = 14;
                                         }
                                         else if(team1.TeamID == match.RedTeam1.TrimEnd('*'))
                                         {
                                             cell = teamWorksheet.Cells[currentRow,3];
                                             cell.Style.Font.Color.SetColor(Color.Red);
                                             cell.Value = team1.TeamID;
-                                            cell.Style.Font.Size = 15;
+                                            cell.Style.Font.Size = 17;
 
                                             cell = teamWorksheet.Cells[currentRow+1,3];
                                             cell.Style.Font.Color.SetColor(Color.Red);
                                             cell.Value = team1.TeamName;
+                                            cell.Style.Font.Size = 14;
                                         }
                                         else if(team1.TeamID == match.RedTeam2.TrimEnd('*'))
                                         {
                                             cell = teamWorksheet.Cells[currentRow,4];
                                             cell.Style.Font.Color.SetColor(Color.Red);
                                             cell.Value = team1.TeamID;
-                                            cell.Style.Font.Size = 15;
+                                            cell.Style.Font.Size = 17;
 
                                             cell = teamWorksheet.Cells[currentRow+1,4];
                                             cell.Style.Font.Color.SetColor(Color.Red);
                                             cell.Value = team1.TeamName;
+                                            cell.Style.Font.Size = 14;
                                         }
                                     }
                                 }
@@ -319,10 +341,10 @@ namespace FTC_TeamMatchGenerator
                                 currentRow = currentRow+2;
                             }
                         }
-                        teamWorksheet.Column(1).Width = 6;
-                        teamWorksheet.Column(2).Width = 21;
-                        teamWorksheet.Column(3).Width = 21;
-                        teamWorksheet.Column(4).Width = 21;
+                        teamWorksheet.Column(1).Width = 8;
+                        teamWorksheet.Column(2).Width = 30;
+                        teamWorksheet.Column(3).Width = 30;
+                        teamWorksheet.Column(4).Width = 30;
                         teamWorksheet.Cells[teamWorksheet.Dimension.Address].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
                     }
                     workbook.Save();
