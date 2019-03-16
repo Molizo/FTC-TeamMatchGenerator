@@ -91,10 +91,10 @@ namespace FTC_TeamMatchGenerator
                         teamWorksheet.PrinterSettings.FitToWidth = 0;
                         teamWorksheet.PrinterSettings.Orientation = eOrientation.Landscape;
                         teamWorksheet.PrinterSettings.PaperSize = ePaperSize.A5;
-                        teamWorksheet.PrinterSettings.BottomMargin = 0.2m;
-                        teamWorksheet.PrinterSettings.TopMargin = 0.2m;
-                        teamWorksheet.PrinterSettings.LeftMargin = 0.2m;
-                        teamWorksheet.PrinterSettings.RightMargin = 0.2m;
+                        teamWorksheet.PrinterSettings.BottomMargin = 0m;
+                        teamWorksheet.PrinterSettings.TopMargin = 0m;
+                        teamWorksheet.PrinterSettings.LeftMargin = 0m;
+                        teamWorksheet.PrinterSettings.RightMargin = 0m;
 
                         var cell = teamWorksheet.Cells[1,1];
                         cell.Value = providedBy;
@@ -342,9 +342,9 @@ namespace FTC_TeamMatchGenerator
                             }
                         }
                         teamWorksheet.Column(1).Width = 8;
-                        teamWorksheet.Column(2).Width = 30;
-                        teamWorksheet.Column(3).Width = 30;
-                        teamWorksheet.Column(4).Width = 30;
+                        teamWorksheet.Column(2).Width = 31;
+                        teamWorksheet.Column(3).Width = 31;
+                        teamWorksheet.Column(4).Width = 31;
                         teamWorksheet.Cells[teamWorksheet.Dimension.Address].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
                     }
                     workbook.Save();
@@ -409,8 +409,8 @@ namespace FTC_TeamMatchGenerator
                             break;
                         inputTeam.TeamID = worksheet.Cells[currentRow, 1].Text;
                         inputTeam.TeamName = worksheet.Cells[currentRow, 2].Text;
-                        if(inputTeam.TeamName.Length > 16)
-                            inputTeam.TeamName = inputTeam.TeamName.Substring(0,16);
+                        if(inputTeam.TeamName.Length > 18)
+                            inputTeam.TeamName = inputTeam.TeamName.Substring(0,18);
                         teams.Add(inputTeam);
                         Console.WriteLine("Added team: " + 
                             inputTeam.TeamID + " " +
