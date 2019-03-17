@@ -40,7 +40,7 @@ namespace FTC_TeamMatchGenerator
             Console.WriteLine();
             Console.Write("Please enter text for the \"Provided by\" field: ");
             providedBy = Console.ReadLine();
-            Console.Write("Is the input.xlsx file ready for processing? (YES/NO)    ");
+            Console.Write("Is the file ready for processing? (YES/NO)    ");
             string input = Console.ReadLine();
             Console.WriteLine();
             Console.WriteLine();
