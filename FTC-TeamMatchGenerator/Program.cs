@@ -98,12 +98,13 @@ namespace FTC_TeamMatchGenerator
 
                         var cell = teamWorksheet.Cells[1,1];
                         cell.Value = providedBy;
-                        cell.Style.Font.Color.SetColor(255,117,113,113);
+                        cell.Style.Font.Color.SetColor(255,0,0,0);
                         cell.Style.Font.Size = 14;
 
                         cell = teamWorksheet.Cells[2,1];
                         cell.Value = "Team #" + team.TeamID + " | " + team.TeamName;
-                        cell.Style.Font.Size = 17;
+                        cell.Style.Font.Size = 20;
+                        cell.Style.Font.Bold = true;
 
                         cell = teamWorksheet.Cells[3,1];
                         cell.Value = "Match";
